@@ -1,0 +1,34 @@
+一、选择题
+1、下面哪种不是jquery的选择器（ C ）。
+基本选择器     B.层次选择器      C.css选择器      D.表单选择器
+2、在jquery中想找到所有元素的同辈元素，下面哪一个是可以实现的（ C ）。
+A．eq()             B.find()           C.siblings()        D.next()
+3、如果需要匹配包含文本的元素，用下面哪种来实现( B ) 。
+A、text()             B、contains()     C、input()   D、attr()
+4、如果想要找到一个表格的指定行数的元素，用下面哪个方法可以快速找到指定元素(  C)。
+A、text()             B、get()        C、eq()         D、contents( )
+5、在jquery中，想要给第一个指定的元素添加样式，下面哪一个是正确的 (A  )  。
+A、first               B、eq(1)      C、css(name)     D、css(name,value)
+6、在jQuery中，通过jQuery对象.css( )可实现样式控制，以下说法正确的是(B   )。
+A. css( )方法不能给同一个元素一次设置多个样式
+B. 正确语法：css(“属性”,”值”)
+C. css( )方法不会去除原有样式
+D. 正确语法：css(“属性”)
+7、以下jQuery代码运行后，对应的HTML代码变为( C )  。
+HTML代码：<p>你好</p>
+jQuery代码：$(“p”).html(“<b>快乐编程</b>”);
+A. <p>你好</p><b>快乐编程</b>
+B. <p>你好<b>快乐编程</b></p>
+C. <b>快乐编程</b>
+D.快乐编程
+8、以下()选项不能够正确地得到这个标签:( B  )?。
+<input?id="btnGo" type=”buttom”  value=”点击” class=”btn”>
+A.$(“#btnGo”)                      B.$(“.btnGo”)
+C.$(“.btn”)                        D.$(“input[type=’button’]”)
+9、以下关于jQuery的描述错误的是（ D ）。
+A.jQuery是一个javascript函数库
+B. jQuery极大地简化了JavaScript编程
+C. jQuery的宗旨是“write less,do more”
+D. jQuery的核心功能不是根据选择器查找HTML元素，然后对这些元素执行相关的操作。
+10、在一个表单里，想要找到指定元素的第一个元素可以用下面哪个实现（ A ）。
+A、first               B、eq(1)            C、input     D、last

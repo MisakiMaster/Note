@@ -1,0 +1,79 @@
+(function()
+{
+    if( location.href.match( /^https://store.steampowered.com/account/licenses/?$/ ) === null )
+        {
+                alert( '请在Steam帐号明细页面运行这些代码: https://store.steampowered.com/account/licenses/' );
+ 
+                window.location = 'https://store.steampowered.com/account/licenses/';
+ 
+                return;
+        }
+        
+        var freePackages =
+        [
+                79113,
+	        98379,
+                12955,
+                136968,
+                136971,
+                150117,
+                557050,
+                129783,
+	
+        ];
+        
+        var ownedPackages = {};
+        
+        jQuery( '.account_table a' ).each( function( i, el )
+        {
+                var match = el.href.match( /javascript:RemoveFreeLicense( ([0-9]+), '/ );
+                
+                if( match !== null )
+                {
+                        ownedPackages[ +match[ 1 ] ] = true;
+                }
+        } );
+        
+        var i = 0,
+            loaded = 0,
+            package = 0,
+            total = freePackages.length,
+            modal = ShowBlockingWaitDialog( 'QQ207742090努力执行中...',
+                    '请耐心等待，如果有错误请无视，请耐心等待脚本加载完毕' );
+        
+        for( ; i < total; i++ )
+        {
+                package = freePackages[ i ];
+                
+                if( ownedPackages[ package ] )
+                {
+                        loaded++;
+                        continue;
+                }
+                
+                jQuery.post(
+                        '//store.steampowered.com/checkout/addfreelicense',
+                        {
+                                action: 'add_to_cart',
+                                sessionid: g_sessionID,
+                                subid: package
+                        }
+                ).always( function( )
+                        {
+                                loaded++;
+                                
+                                modal.Dismiss();
+                                
+                                if( loaded >= total )
+                                {
+                                        location.reload();
+                                }
+                                else
+                                {
+                                        modal = ShowBlockingWaitDialog( '执行中...',
+                                                '加载至 ' + loaded + '/' + total + '.' );
+                                }
+                        }
+                );
+        }
+}());
